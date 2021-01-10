@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  currentDate: string;
 
-  constructor() {}
+  constructor() {
+    const date = new Date();
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    this.currentDate = date.toLocaleDateString('fr-FR', options);
+  }
 
 }
