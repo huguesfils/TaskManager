@@ -11,6 +11,15 @@
 
     <h1><b>Aujourd'hui</b></h1>
     <h5>{{ currentDate }}</h5>
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="myTask" placeholder="Entrer une tâche"></ion-input>
+        <ion-button (click)="addTaskToFirebase()" slot="end">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-card>
     
   </div>
 </ion-content>
