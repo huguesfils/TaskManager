@@ -51,4 +51,9 @@ export class HomePage {
     });
   }
 
+  changeCheckState(ev: any) {
+    console.log('checked: ' + ev.checked);
+    this.afDB.object('Tasks/' + ev.key + '/checked/').set(ev.checked);
+  }
+
 }

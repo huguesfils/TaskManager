@@ -14,7 +14,7 @@
 
     <ion-card *ngFor="let task of tasks">
       <ion-item lines="none">
-        <ion-checkbox color="success" slot="start"></ion-checkbox>
+        <ion-checkbox (ionChange)="changeCheckState(task)" [(ngModel)]="task.checked" color="success" slot="start"></ion-checkbox>
         <ion-label>
           <h2 >{{ task.text }}</h2>
           <h3>{{ task.description }}</h3>
