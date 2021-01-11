@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { ModalController } from '@ionic/angular';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { MyTaskPage } from '../my-task/my-task.page';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +13,7 @@ export class HomePage {
   addTask: boolean;
   tasks = [];
 
-  constructor(public afDB: AngularFireDatabase, public modalController: ModalController) {
+  constructor(public afDB: AngularFireDatabase) {
     const date = new Date();
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     this.currentDate = date.toLocaleDateString('fr-FR', options);
@@ -56,14 +53,6 @@ export class HomePage {
     this.afDB.list('Tasks/').remove(task.key);
   }
 
-  async displayTask(){
-    console.log('Tasks: ' + JSON.stringify(this.tasks));
-    const modal = await this.modalController.create({
-      component: MyTaskPage,
-      componentProps: this.tasks
-    });
-    return await modal.present();
-  }
 }
 
 

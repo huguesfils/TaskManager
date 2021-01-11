@@ -12,7 +12,7 @@
     <h1><b>Aujourd'hui</b></h1>
     <h5>{{ currentDate }}</h5>
 
-    <ion-card *ngFor="let task of tasks" (click)="displayTask($task)">
+    <ion-card *ngFor="let task of tasks" >
       <ion-item-sliding>
       <ion-item lines="none">
         <ion-label>
