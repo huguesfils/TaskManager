@@ -56,4 +56,8 @@ export class HomePage {
     this.afDB.object('Tasks/' + ev.key + '/checked/').set(ev.checked);
   }
 
+  deleteTask(task: any) {
+    this.afDB.list('Tasks/').remove(task.key);
+  }
+
 }
