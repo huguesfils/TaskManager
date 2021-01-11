@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { MyTaskPageModule } from './my-task/my-task.module';
 
 
 export const firebaseConfig = {
@@ -28,7 +29,7 @@ export const firebaseConfig = {
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,],
+    AngularFireDatabaseModule, MyTaskPageModule],
   providers: [
     StatusBar,
     SplashScreen,
