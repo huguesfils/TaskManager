@@ -52,7 +52,12 @@ export class HomePage {
   deleteTask(task: any) {
     this.afDB.list('Tasks/').remove(task.key);
   }
-
+  editTask(task:any){
+    this.deleteTask(task);
+    this.showForm();
+    this.title = task.title;
+    this.description = task.description;
+    }
 }
 
 
