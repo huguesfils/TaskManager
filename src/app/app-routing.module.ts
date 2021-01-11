@@ -11,10 +11,6 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'my-task',
-    loadChildren: () => import('./my-task/my-task.module').then( m => m.MyTaskPageModule)
-  },
 ];
 
 @NgModule({
