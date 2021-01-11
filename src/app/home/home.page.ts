@@ -25,7 +25,6 @@ export class HomePage {
       text: this.myTask,
       description: this.description,
       date: new Date().toISOString(),
-      checked: false
     });
     this.showForm();
   }
@@ -45,19 +44,17 @@ export class HomePage {
           text: action.payload.exportVal().text,
           description: action.payload.exportVal().description,
           date: action.payload.exportVal().date.substring(11, 16),
-          checked: action.payload.exportVal().checked
         });
       });
     });
   }
 
-  changeCheckState(ev: any) {
-    console.log('checked: ' + ev.checked);
-    this.afDB.object('Tasks/' + ev.key + '/checked/').set(ev.checked);
-  }
-
   deleteTask(task: any) {
     this.afDB.list('Tasks/').remove(task.key);
+  }
+
+  editTask(task: any){
+  
   }
 
 }
