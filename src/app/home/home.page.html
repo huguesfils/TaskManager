@@ -12,11 +12,11 @@
     <h1><b>Aujourd'hui</b></h1>
     <h5>{{ currentDate }}</h5>
 
-    <ion-card *ngFor="let task of tasks">
+    <ion-card *ngFor="let task of tasks" (click)="displayTask()">
       <ion-item-sliding>
       <ion-item lines="none">
         <ion-label>
-          <h2 >{{ task.text }}</h2>
+          <h2><b>{{ task.title }}</b></h2>
           <h3>{{ task.description }}</h3>
           <p>{{ task.date }} {{ task.key}}</p> <!-- firebase key = id ?-->
         </ion-label>
@@ -26,23 +26,18 @@
           <ion-icon name="trash" slot="icon-only"></ion-icon>
         </ion-item-option>
       </ion-item-options>
-      <ion-item-options side="start">
-        <ion-item-option color="warning" (click)="editTask(task)">
-          <ion-icon name="create-outline" slot="icon-only"></ion-icon> 
-        </ion-item-option>
-      </ion-item-options>
     </ion-item-sliding>
     </ion-card>
 
     <ion-card *ngIf="addTask">
       <ion-item lines="none">
-        <ion-input [(ngModel)]="myTask" placeholder="Entrer une tâche"></ion-input>
+        <ion-input [(ngModel)]="title" placeholder="Entrer une tâche"></ion-input>
         <ion-button (click)="addTaskToFirebase()" slot="end">
           <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="description" placeholder="Description"></ion-input>
+        <ion-textarea [(ngModel)]="description" placeholder="Description"></ion-textarea>
       </ion-item>
     </ion-card> 
 

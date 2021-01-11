@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { IonCard, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,12 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class HomePage {
   currentDate: string;
-  myTask: string;
+  title: string;
   description: string;
   addTask: boolean;
   tasks = [];
 
-  constructor( public afDB: AngularFireDatabase) {
+  constructor(public afDB: AngularFireDatabase, private modalCtrl: ModalController) {
     const date = new Date();
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     this.currentDate = date.toLocaleDateString('fr-FR', options);
@@ -22,7 +23,7 @@ export class HomePage {
 
   addTaskToFirebase() {
     this.afDB.list('Tasks/').push({
-      text: this.myTask,
+      title: this.title,
       description: this.description,
       date: new Date().toISOString(),
     });
@@ -31,7 +32,7 @@ export class HomePage {
   
   showForm() {
     this.addTask = !this.addTask;
-    this.myTask = '';
+    this.title = '';
     this.description = '';
   }
 
@@ -41,7 +42,7 @@ export class HomePage {
       actions.forEach(action => {
         this.tasks.push({
           key: action.key,
-          text: action.payload.exportVal().text,
+          title: action.payload.exportVal().title,
           description: action.payload.exportVal().description,
           date: action.payload.exportVal().date.substring(11, 16),
         });
@@ -53,8 +54,9 @@ export class HomePage {
     this.afDB.list('Tasks/').remove(task.key);
   }
 
-  editTask(task: any){
-  
+  displayTask(){
+    console.log ("ok");
   }
-
 }
+
+
