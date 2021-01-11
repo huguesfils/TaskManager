@@ -12,14 +12,24 @@
     <h1><b>Aujourd'hui</b></h1>
     <h5>{{ currentDate }}</h5>
 
-    <ion-card>
+    <ion-card *ngIf="addTask">
       <ion-item lines="none">
         <ion-input [(ngModel)]="myTask" placeholder="Entrer une tâche"></ion-input>
         <ion-button (click)="addTaskToFirebase()" slot="end">
           <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
       </ion-item>
-    </ion-card>
+    </ion-card> 
+
+    <ion-button *ngIf="!addTask" (click)="showForm()" expand="block" class="add-button">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Ajouter une tâche
+    </ion-button>
+    
+    <ion-button *ngIf="addTask" (click)="showForm()" expand="block" class="add-button">
+      <ion-icon name="close" slot="start"></ion-icon>
+      Annuler
+    </ion-button>
     
   </div>
 </ion-content>

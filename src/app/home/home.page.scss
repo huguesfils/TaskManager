@@ -19,3 +19,12 @@ h5 { // date
   width: 100%;
   padding: 1px;
 }
+
+.add-button {
+  --background: #383a3e;
+  position: absolute;
+  bottom: 5px;
+  width: 96%;
+  --color: #ffffff;
+  margin-left: 2%;
+}
