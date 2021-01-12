@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { PopoverController } from '@ionic/angular';
 import {PopoverComponent} from '../popover/popover.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import {PopoverComponent} from '../popover/popover.component';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  name = new FormControl('');
   currentDate: string;
   title: string;
   description: string;
@@ -63,7 +65,6 @@ export class HomePage {
   deleteTask(task: any) {
     this.afDB.list('Tasks/').remove(task.key);
   }
-  
   editTask(task:any){
     this.deleteTask(task);
     this.showForm();
