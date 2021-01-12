@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { PopoverController } from '@ionic/angular';
 import {PopoverComponent} from '../popover/popover.component';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  name = new FormControl('');
   currentDate: string;
   title: string;
   description: string;

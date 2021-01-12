@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 export const firebaseConfig = {
@@ -29,7 +28,7 @@ export const firebaseConfig = {
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,ReactiveFormsModule],
+    AngularFireDatabaseModule],
   providers: [
     StatusBar,
     SplashScreen,
