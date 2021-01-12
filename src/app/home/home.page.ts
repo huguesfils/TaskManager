@@ -28,7 +28,7 @@ export class HomePage {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       event: ev,
-      translucent: true
+      translucent: false
     });
     return await popover.present();
   }
