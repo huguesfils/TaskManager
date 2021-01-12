@@ -21,15 +21,25 @@ h5 { // date
 }
 
 .add-button {
-  --background: #383a3e;
+  --background: #0080ff;
   position: absolute;
   bottom: 5px;
   width: 96%;
   --color: #ffffff;
   margin-left: 2%;
 }
+.help-button {
+  --background: #0080ff;
+  margin-right: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 5px;
+
+}
 
 ion-card {
+  height: flex;
   margin-bottom: 0px;
   margin-top: 6px;
 }

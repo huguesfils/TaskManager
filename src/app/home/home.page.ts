@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { PopoverController } from '@ionic/angular';
+import {PopoverComponent} from '../popover/popover.component';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +15,20 @@ export class HomePage {
   addTask: boolean;
   tasks = [];
 
-  constructor(public afDB: AngularFireDatabase) {
+  constructor(public afDB: AngularFireDatabase, public popoverController: PopoverController) {
     const date = new Date();
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     this.currentDate = date.toLocaleDateString('fr-FR', options);
     this.getTasks();
+  }
+
+  async showHelp(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
   addTaskToFirebase() {
@@ -58,6 +69,7 @@ export class HomePage {
     this.title = task.title;
     this.description = task.description;
     }
+
 }
 
 

@@ -12,10 +12,10 @@
     <h1><b>Aujourd'hui</b></h1>
     <h5>{{ currentDate }}</h5>
 
-    <ion-card *ngFor="let task of tasks" >
+    <ion-card *ngFor="let task of tasks">
       <ion-item-sliding>
       <ion-item lines="none">
-        <ion-label>
+        <ion-label text-wrap>
           <h2><b>{{ task.title }}</b></h2>
           <h3>{{ task.description }}</h3>
           <p>{{ task.date }} {{ task.key}}</p> <!-- firebase key = id ?-->
@@ -42,7 +42,7 @@
         </ion-button>
       </ion-item>
       <ion-item>
-        <ion-textarea [(ngModel)]="description" placeholder="Description"></ion-textarea>
+        <ion-textarea [(ngModel)]="description" placeholder="Description (facultatif)"></ion-textarea>
       </ion-item>
     </ion-card> 
 
@@ -54,6 +54,10 @@
     <ion-button *ngIf="addTask" (click)="showForm()" expand="block" class="add-button">
       <ion-icon name="close" slot="start"></ion-icon>
       Annuler
+    </ion-button>
+
+    <ion-button (click)= 'showHelp()' class="help-button" slot="icon-only">
+      <ion-icon name="help-circle-outline"></ion-icon>
     </ion-button>
     
   </div>
