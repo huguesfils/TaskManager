@@ -29,17 +29,16 @@ h5 { // date
   margin-left: 2%;
 }
 .help-button {
-  --background: #0080ff;
+  --background: lightgrey;
   margin-right: 5px;
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
-  border-radius: 5px;
+  size: 100%;
 
 }
 
 ion-card {
-  height: flex;
   margin-bottom: 0px;
   margin-top: 6px;
 }
